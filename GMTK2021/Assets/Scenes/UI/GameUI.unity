@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 323492218}
   - component: {fileID: 323492217}
   m_Layer: 5
-  m_Name: DividingLayoutGroup (1)
+  m_Name: HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 326216865}
   - component: {fileID: 326216864}
   - component: {fileID: 326216863}
+  - component: {fileID: 326216867}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -298,6 +299,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &326216867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326216862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c743667b44fa714e86f4eadd00fff26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hpBar: {fileID: 323492217}
 --- !u!1 &424165287
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +370,7 @@ GameObject:
   - component: {fileID: 1220794463}
   - component: {fileID: 1220794462}
   m_Layer: 5
-  m_Name: DividingLayoutGroup
+  m_Name: SplitBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
