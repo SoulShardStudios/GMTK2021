@@ -2,38 +2,32 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(PlayerMovement))]
-public class PlayerAnimator : MonoBehaviour
+public class PlayerAnimator : AnimatorController
 {
-    [Header("Animation names idle")]
-    [SerializeField] string _idleTop;
-    [SerializeField] string _idleBottom;
-    [SerializeField] string _idleLeft;
-    [SerializeField] string _idleRight;
-    [Header("Animation names walk")]
-    [SerializeField] string _walkTop;
-    [SerializeField] string _walkBottom;
-    [SerializeField] string _walkLeft;
-    [SerializeField] string _walkRight;
-
+    [SerializeField] AnimationBlender _idleBlender, _walkBlender;
     PlayerMovement _playerMovement;
-    
+    Vector2 _cachedDirection;
     void Awake()
     {
         // cache references
         _playerMovement = GetComponent<PlayerMovement>();
+        _animator = GetComponent<Animator>();
     }
-
-    void Update()
-    {
-        HandleAnimation();
-    }
-
+    void Update() => HandleAnimation();
     void HandleAnimation()
     {
         // TODO: add some logic tied with PlayerAttack? so it plays attack animation
 
         var normalizedMovementVector = _playerMovement.InputMovementVector.normalized;
-
-        
+        if (normalizedMovementVector != Vector2.zero)
+        {
+            _cachedDirection = normalizedMovementVector;
+            ChangeAnimState(_walkBlender.GetBlendedAnimation(normalizedMovementVector));
+        }
+        else
+        {
+            ChangeAnimState(_idleBlender.GetBlendedAnimation(_cachedDirection));
+        }
+            
     }
 }
