@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float _playerSpeed;
 
-    Vector2 _inputMovementVector;
+    public Vector2 InputMovementVector { get; private set; }
+    
     Rigidbody2D _rigidbody2D;
     
     void Awake()
@@ -20,14 +21,14 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // handle the movement
-        _rigidbody2D.velocity = _inputMovementVector * _playerSpeed;
+        _rigidbody2D.velocity = InputMovementVector * _playerSpeed;
     }
 
     #region PlayerInput callbacks
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        _inputMovementVector = context.ReadValue<Vector2>();
+        InputMovementVector = context.ReadValue<Vector2>();
     }
     
     #endregion
