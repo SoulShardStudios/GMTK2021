@@ -19,6 +19,7 @@ public class GameUIControler : MonoBehaviour
         _input.Enable();
         _input.performed += TogglePause;
         isPaused = false;
+        Time.timeScale = 1;
         _pause.SetActive(false);
         S = this;
         _exit.clickCallback += ExitGame;
@@ -33,6 +34,7 @@ public class GameUIControler : MonoBehaviour
     public void UpdateHPUI(float fillamount) => _hpBar.fillAmount = fillamount;
     private void ExitGame(PointerEventData eventData)
     {
+        isPaused = false;
         SceneManager.LoadScene(_title, LoadSceneMode.Single);
     }
     public void TogglePause(InputAction.CallbackContext context) => TogglePause();

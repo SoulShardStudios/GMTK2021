@@ -18,11 +18,13 @@ public class Door : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(_playerID))
         {
-            Debug.Log(isClosed && collision.GetComponent<Player>().hasKey);
-            if (isClosed && collision.GetComponent<Player>().hasKey)
+            Player player = collision.GetComponent<Player>();
+            if (isClosed && player.hasKey)
             {
                 _renderer.sprite = _open;
                 isClosed = false;
+                player.hasKey = false;
+                GameUIControler.S.TogglePlayerKey(false, player.tag);
             }
             playerIsOverDoor = true;
             _renderer.color = Color.green;
@@ -35,6 +37,5 @@ public class Door : MonoBehaviour
             playerIsOverDoor = false;
             _renderer.color = Color.white;
         }
-            
     }
 }

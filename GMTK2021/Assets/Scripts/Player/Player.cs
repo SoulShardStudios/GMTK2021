@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
+        Debug.Log(GameUIControler.S.isPaused);
         if (GameUIControler.S.isPaused)
             InputMovementVector = Vector2.zero;
         // handle the movement
@@ -39,7 +40,7 @@ public class Player : MonoBehaviour
         {
             hasKey = true;
             Destroy(collision.gameObject);
-            GameUIControler.S.TogglePlayerKey(hasKey, gameObject.name);
+            GameUIControler.S.TogglePlayerKey(hasKey, tag);
         }
     }
 }
