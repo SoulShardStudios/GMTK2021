@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2488721969700123026
+--- !u!1 &3260213288747450244
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2488721969700123027}
-  - component: {fileID: 9051309709297480611}
-  - component: {fileID: 9120527485021622775}
-  - component: {fileID: 4824119189077427683}
-  - component: {fileID: 2488721969700123024}
+  - component: {fileID: 3260213288747450245}
+  - component: {fileID: 8226840659107741109}
+  - component: {fileID: 8153119137993170913}
+  - component: {fileID: 5568027023315045365}
+  - component: {fileID: 2037443781540216537}
   m_Layer: 0
-  m_Name: Slime
+  m_Name: Thief
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2488721969700123027
+--- !u!4 &3260213288747450245
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2488721969700123026}
+  m_GameObject: {fileID: 3260213288747450244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.376, y: 0.961, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3829936485241541747}
+  - {fileID: 4220302989140843109}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9051309709297480611
+--- !u!114 &8226840659107741109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2488721969700123026}
+  m_GameObject: {fileID: 3260213288747450244}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
@@ -63,13 +63,13 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &9120527485021622775
+--- !u!114 &8153119137993170913
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2488721969700123026}
+  m_GameObject: {fileID: 3260213288747450244}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
@@ -99,13 +99,13 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
---- !u!114 &4824119189077427683
+--- !u!114 &5568027023315045365
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2488721969700123026}
+  m_GameObject: {fileID: 3260213288747450244}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
@@ -113,26 +113,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
---- !u!114 &2488721969700123024
+--- !u!114 &2037443781540216537
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2488721969700123026}
+  m_GameObject: {fileID: 3260213288747450244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9ee57f4a6ea470a83c537871ab730fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bade80aefaa4a07869025e950c3c72b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _targetedPlayer: {fileID: 0}
   _isFlying: 0
-  _isMelee: 1
-  _entityName: Slime
-  _baseHealth: 1
+  _isMelee: 0
+  _entityName: Thief
+  _baseHealth: 3
   _baseDamage: 1
   _detectionRange: 3
---- !u!1 &8965607401191032272
+--- !u!1 &8348285754307890118
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,41 +140,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3829936485241541747}
-  - component: {fileID: 8965607401191032286}
-  - component: {fileID: 8965607401191032273}
+  - component: {fileID: 4220302989140843109}
+  - component: {fileID: 8348285754307890120}
+  - component: {fileID: 8348285754307890119}
   m_Layer: 0
-  m_Name: SlimeGFX
+  m_Name: ThiefGFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3829936485241541747
+--- !u!4 &4220302989140843109
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8965607401191032272}
+  m_GameObject: {fileID: 8348285754307890118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.0784, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2488721969700123027}
+  m_Father: {fileID: 3260213288747450245}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &8965607401191032286
+--- !u!95 &8348285754307890120
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8965607401191032272}
+  m_GameObject: {fileID: 8348285754307890118}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d7a65b74ceb191b42a667846235b177f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 223b7091443855e40be6106568d353ec, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -183,13 +183,13 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!212 &8965607401191032273
+--- !u!212 &8348285754307890119
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8965607401191032272}
+  m_GameObject: {fileID: 8348285754307890118}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -223,7 +223,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7282886668606283007, guid: 9d94ac162f41ad14f8c84b65b508cb46, type: 3}
+  m_Sprite: {fileID: 2759625832949664974, guid: 591ad71d76141734fb2478dd4cb82c67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -30,7 +30,7 @@ public abstract class Entity : MonoBehaviour
         _aiDestinationSetter.target = _targetedPlayer;
         
         if(_isFlying) 
-            _aiPath.pickNextWaypointDist = 1;
+            _aiPath.pickNextWaypointDist = 5;
     }
 
     void FixedUpdate()
