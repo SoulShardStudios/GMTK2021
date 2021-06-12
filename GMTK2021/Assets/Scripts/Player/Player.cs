@@ -4,10 +4,10 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(PlayerInput))]
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] float _playerSpeed;
-
+    [HideInInspector] public bool hasKey;
     public Vector2 InputMovementVector { get; private set; }
     
     Rigidbody2D _rigidbody2D;
