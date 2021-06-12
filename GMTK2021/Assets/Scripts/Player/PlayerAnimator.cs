@@ -51,5 +51,4 @@ public class PlayerAnimator : AnimatorController
             _flashes--;
     }
     Color ModAlpha(Color toMod, float modBy) => new Color(toMod.r, toMod.g, toMod.b, toMod.a + modBy);
-    Color SetAlpha(Color toMod, float alpha) => new Color(toMod.r, toMod.g, toMod.b, alpha);
 }

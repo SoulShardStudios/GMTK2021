@@ -1,13 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 // loads the UI scene if its not already loaded
-public class UILoader : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     [SerializeField] string UI;
-    private void OnEnable()
+    void OnEnable()
     {
         if (!SceneManager.GetSceneByName(UI).isLoaded)
             SceneManager.LoadScene(UI, LoadSceneMode.Additive);
+        PlayerHealthManager.Init();
     }
-
+    void Update() => PlayerHealthManager.damageCooldown.HandleTimerScaled();
 }

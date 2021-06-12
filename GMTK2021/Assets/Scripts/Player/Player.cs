@@ -7,18 +7,21 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerAnimator))]
 public class Player : MonoBehaviour
 {
+    #region Vars
     [SerializeField] float _playerSpeed;
     [HideInInspector] public bool hasKey;
     public Vector2 InputMovementVector { get; private set; }
     Rigidbody2D _rigidbody2D;
-    PlayerAnimator _animator;
+    [HideInInspector] public PlayerAnimator animator;
+    #endregion
     #region Update/Init Methods
     void Awake()
     {
         // cache references
-        _animator = GetComponent<PlayerAnimator>();
+        animator = GetComponent<PlayerAnimator>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
+    private void OnEnable() => PlayerHealthManager.AddToManager(this);
     void FixedUpdate()
     {
         if (GameUIControler.S.isPaused)
@@ -48,4 +51,8 @@ public class Player : MonoBehaviour
         }
     }
     #endregion
+    public void Death()
+    {
+
+    }
 }
