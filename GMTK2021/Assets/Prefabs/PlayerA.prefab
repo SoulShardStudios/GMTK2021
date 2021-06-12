@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436bde73a20d4054890f7ac70f5aabe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
   _idleBlender:
     _top: IdleUp
     _bottom: IdleDown

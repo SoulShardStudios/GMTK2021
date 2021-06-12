@@ -40,6 +40,7 @@ public class PauseUIControler : MonoBehaviour
     public void TogglePause()
     {
         isPaused = !isPaused;
+        Time.timeScale = isPaused ? 0 : 1;
         _pause.SetActive(isPaused);
     }
 }

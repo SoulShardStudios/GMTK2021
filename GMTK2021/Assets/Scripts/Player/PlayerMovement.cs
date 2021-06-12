@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (PauseUIControler.S.isPaused)
+            InputMovementVector = Vector2.zero;
         // handle the movement
         _rigidbody2D.velocity = InputMovementVector * _playerSpeed;
     }
