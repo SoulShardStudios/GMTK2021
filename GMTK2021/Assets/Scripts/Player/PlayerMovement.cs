@@ -28,7 +28,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnMovement(InputAction.CallbackContext context)
     {
-        InputMovementVector = context.ReadValue<Vector2>();
+        if (!PauseUIControler.S.isPaused)
+            InputMovementVector = context.ReadValue<Vector2>();
+        else
+            InputMovementVector = Vector2.zero;
     }
     
     #endregion
