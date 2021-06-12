@@ -234,3 +234,6 @@ MonoBehaviour:
   _baseHealth: 3
   _baseDamage: 1
   _detectionRange: 3
+  _obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 8

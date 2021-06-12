@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(AIPath))]
 public abstract class Entity : MonoBehaviour
 {
-    [SerializeField] Transform _targetedPlayer;
+    [SerializeField] protected Transform _targetedPlayer;
     [SerializeField] bool _isFlying;
     [SerializeField] bool _isMelee;
     [SerializeField] string _entityName;
@@ -16,6 +16,8 @@ public abstract class Entity : MonoBehaviour
     AIDestinationSetter _aiDestinationSetter;
     AIPath _aiPath;
     float _currentHealth;
+
+    protected bool shouldMove = true;
 
     void Awake()
     {
@@ -36,7 +38,12 @@ public abstract class Entity : MonoBehaviour
     void FixedUpdate()
     {
         // check if player is near enough to follow him
-        _aiPath.canMove = Vector2.Distance(transform.position, _targetedPlayer.position) <= _detectionRange;
+
+        var isInDistance = Vector2.Distance(transform.position, _targetedPlayer.position) <= _detectionRange;
+
+        _aiPath.canMove = isInDistance && shouldMove;
+        
+        PhysicsUpdate();
     }
 
     public void TakeDamage(float damage)
@@ -51,5 +58,6 @@ public abstract class Entity : MonoBehaviour
         }
     }
 
-    protected void OnDeath() { }
+    protected virtual void OnDeath() { }
+    protected virtual void PhysicsUpdate() {} // passing fixed update to subclasses
 }
