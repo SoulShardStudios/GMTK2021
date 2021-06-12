@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!61 &494045004917219526
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -126,4 +126,5 @@ MonoBehaviour:
   _open: {fileID: 5213229242370633579, guid: a9ca6d2e1ee694a4ca9ddf22daa1212e, type: 3}
   _startClosed: 0
   playerIsOverDoor: 0
+  isClosed: 0
   _playerID: 
