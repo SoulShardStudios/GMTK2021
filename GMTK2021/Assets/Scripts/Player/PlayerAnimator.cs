@@ -25,9 +25,8 @@ public class PlayerAnimator : AnimatorController
     {
         if (_flashes > 0)
             HandleDamageFlash();
-        HandleAnimation();
     }
-    void HandleAnimation()
+    public void HandleAnimation()
     {
         // TODO: add some logic tied with PlayerAttack? so it plays attack animation
 

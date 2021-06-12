@@ -5,38 +5,44 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 public class GameUIControler : MonoBehaviour
 {
-    [SerializeField] UIButton _exit, _continue;
+    #region Vars
+    [SerializeField] UIButton _pauseExit, _unpause, _gameOverExit, _retry;
     [SerializeField] Image _hpBar;
     [SerializeField] Image _playerAKey, _playerBKey;
     [SerializeField] string _title;
-    [SerializeField] GameObject _pause;
+    [SerializeField] GameObject _pause, _gameOver;
+    [SerializeField] InputAction _input;
     [HideInInspector] public bool isPaused { get; private set; }
     [HideInInspector] public static GameUIControler S { get; private set; }
-
-    [SerializeField] InputAction _input;
+    #endregion
+    #region Init Methods
     private void OnEnable()
     {
+        S = this;
+        //input management
         _input.Enable();
         _input.performed += TogglePause;
+        //pause stuff
         isPaused = false;
         Time.timeScale = 1;
         _pause.SetActive(false);
-        S = this;
-        _exit.clickCallback += ExitGame;
-        _continue.clickCallback += TogglePause;
+        _pauseExit.clickCallback += ExitGame;
+        _unpause.clickCallback += TogglePause;
+        //game over setup
+        _gameOver.SetActive(false);
+        _gameOverExit.clickCallback += ExitGame;
+        _retry.clickCallback += RetryLevel;
     }
     private void OnDisable()
     {
         _input.Disable();
-        _exit.clickCallback -= ExitGame;
-        _continue.clickCallback -= TogglePause;
+        _pauseExit.clickCallback -= ExitGame;
+        _unpause.clickCallback -= TogglePause;
+        _gameOverExit.clickCallback -= ExitGame;
+        _retry.clickCallback -= RetryLevel;
     }
-    public void UpdateHPUI(float fillamount) => _hpBar.fillAmount = fillamount;
-    private void ExitGame(PointerEventData eventData)
-    {
-        isPaused = false;
-        SceneManager.LoadScene(_title, LoadSceneMode.Single);
-    }
+    #endregion
+    #region Pause Funcs
     public void TogglePause(InputAction.CallbackContext context) => TogglePause();
     public void TogglePause(PointerEventData eventData) => TogglePause();
     private void TogglePause()
@@ -45,5 +51,24 @@ public class GameUIControler : MonoBehaviour
         Time.timeScale = isPaused ? 0 : 1;
         _pause.SetActive(isPaused);
     }
-    public void TogglePlayerKey(bool toggle, string PlayerID) => (PlayerID == "PlayerA" ? _playerAKey : _playerBKey).gameObject.SetActive(toggle);
+    #endregion
+    #region UI State Funcs
+    public void TogglePlayerKeyDisplay(bool toggle, string PlayerID) => (PlayerID == "PlayerA" ? _playerAKey : _playerBKey).gameObject.SetActive(toggle);
+    public void UpdateHPUI(float fillamount) => _hpBar.fillAmount = fillamount;
+    #endregion
+    #region Game State Funcs
+    private void ExitGame(PointerEventData eventData)
+    {
+        isPaused = false;
+        SceneManager.LoadScene(_title, LoadSceneMode.Single);
+    }
+    #endregion
+    #region Death UI Funcs
+    void RetryLevel(PointerEventData eventData) => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+    public void EnableDeathUI()
+    {
+        isPaused = true;
+        _gameOver.SetActive(true);
+    }
+    #endregion
 }

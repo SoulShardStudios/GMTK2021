@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public Vector2 InputMovementVector { get; private set; }
     Rigidbody2D _rigidbody2D;
     [HideInInspector] public PlayerAnimator animator;
+    bool _isDead;
     #endregion
     #region Update/Init Methods
     void Awake()
@@ -24,8 +25,10 @@ public class Player : MonoBehaviour
     private void OnEnable() => PlayerHealthManager.AddToManager(this);
     void FixedUpdate()
     {
-        if (GameUIControler.S.isPaused)
+        if (GameUIControler.S.isPaused || _isDead)
             InputMovementVector = Vector2.zero;
+        else
+            animator.HandleAnimation();
         // handle the movement
         _rigidbody2D.velocity = InputMovementVector * _playerSpeed;
     }
@@ -47,12 +50,12 @@ public class Player : MonoBehaviour
         {
             hasKey = true;
             Destroy(collision.gameObject);
-            GameUIControler.S.TogglePlayerKey(hasKey, tag);
+            GameUIControler.S.TogglePlayerKeyDisplay(hasKey, tag);
         }
     }
     #endregion
     public void Death()
     {
-
+        _isDead = true;
     }
 }

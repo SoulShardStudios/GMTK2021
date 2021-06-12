@@ -24,7 +24,7 @@ public class Door : MonoBehaviour
                 _renderer.sprite = _open;
                 isClosed = false;
                 player.hasKey = false;
-                GameUIControler.S.TogglePlayerKey(false, player.tag);
+                GameUIControler.S.TogglePlayerKeyDisplay(false, player.tag);
             }
             playerIsOverDoor = true;
             _renderer.color = Color.green;
