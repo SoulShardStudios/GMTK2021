@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerSpeed: 1.2
+  hasKey: 0
 --- !u!114 &3281919334111752126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,7 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436bde73a20d4054890f7ac70f5aabe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
   _idleBlender:
     _top: IdleUp
     _bottom: IdleDown
@@ -124,6 +124,7 @@ MonoBehaviour:
     _bottom: WalkDown
     _left: WalkLeft
     _right: WalkRight
+  _flashSpeed: 0.005
 --- !u!114 &6720043286220058100
 MonoBehaviour:
   m_ObjectHideFlags: 0

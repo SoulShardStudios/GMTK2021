@@ -4,25 +4,29 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(PlayerAnimator))]
 public class Player : MonoBehaviour
 {
     [SerializeField] float _playerSpeed;
     [HideInInspector] public bool hasKey;
     public Vector2 InputMovementVector { get; private set; }
     Rigidbody2D _rigidbody2D;
+    PlayerAnimator _animator;
+    #region Update/Init Methods
     void Awake()
     {
         // cache references
+        _animator = GetComponent<PlayerAnimator>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
     void FixedUpdate()
     {
-        Debug.Log(GameUIControler.S.isPaused);
         if (GameUIControler.S.isPaused)
             InputMovementVector = Vector2.zero;
         // handle the movement
         _rigidbody2D.velocity = InputMovementVector * _playerSpeed;
     }
+    #endregion
     #region PlayerInput callbacks
     public void OnMovement(InputAction.CallbackContext context)
     {
@@ -33,7 +37,7 @@ public class Player : MonoBehaviour
     }
 
     #endregion
-
+    #region Colision Checks
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Key"))
@@ -43,4 +47,5 @@ public class Player : MonoBehaviour
             GameUIControler.S.TogglePlayerKey(hasKey, tag);
         }
     }
+    #endregion
 }

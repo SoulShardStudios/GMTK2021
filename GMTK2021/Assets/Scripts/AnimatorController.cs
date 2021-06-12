@@ -1,7 +1,8 @@
 using UnityEngine;
+[RequireComponent(typeof(Animator))]
 public class AnimatorController : MonoBehaviour
 {
-    [SerializeField] protected Animator _animator;
+    protected Animator _animator;
     string _currentState;
     protected void ChangeAnimState(string state)
     {
