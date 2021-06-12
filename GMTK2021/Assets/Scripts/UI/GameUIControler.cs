@@ -3,15 +3,15 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-
-public class PauseUIControler : MonoBehaviour
+public class GameUIControler : MonoBehaviour
 {
     [SerializeField] UIButton _exit, _continue;
     [SerializeField] Image _hpBar;
+    [SerializeField] Image _playerAKey, _playerBKey;
     [SerializeField] string _title;
     [SerializeField] GameObject _pause;
     [HideInInspector] public bool isPaused { get; private set; }
-    [HideInInspector] public static PauseUIControler S { get; private set; }
+    [HideInInspector] public static GameUIControler S { get; private set; }
 
     [SerializeField] InputAction _input;
     private void OnEnable()
@@ -37,10 +37,11 @@ public class PauseUIControler : MonoBehaviour
     }
     public void TogglePause(InputAction.CallbackContext context) => TogglePause();
     public void TogglePause(PointerEventData eventData) => TogglePause();
-    public void TogglePause()
+    private void TogglePause()
     {
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0 : 1;
         _pause.SetActive(isPaused);
     }
+    public void TogglePlayerKey(bool toggle, string PlayerID) => (PlayerID == "PlayerA" ? _playerAKey : _playerBKey).gameObject.SetActive(toggle);
 }

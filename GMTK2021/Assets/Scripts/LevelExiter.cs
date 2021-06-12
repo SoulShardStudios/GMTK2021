@@ -7,6 +7,7 @@ public class LevelExiter : MonoBehaviour
     private void Update()
     {
         if (_doorA.playerIsOverDoor && _doorB.playerIsOverDoor)
-            SceneManager.LoadScene(_sceneToLoad, LoadSceneMode.Single);
+            if (!(_doorA.isClosed && _doorB.isClosed))
+                SceneManager.LoadScene(_sceneToLoad, LoadSceneMode.Single);
     }
 }
