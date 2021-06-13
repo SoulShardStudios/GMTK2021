@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6720043286220058090}
   - component: {fileID: 693296535206602982}
   - component: {fileID: 1841074175055513184}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerA
   m_TagString: PlayerA
   m_Icon: {fileID: 0}
@@ -429,3 +429,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 2
+  _destoryAfter: 0

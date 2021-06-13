@@ -11,10 +11,7 @@ public class PlayerBProjectiles : MonoBehaviour
     private void OnEnable() => _player = GetComponent<PlayerAnimator>();
     public void FireProjectile()
     {
-        Vector2Int dir = RoundVector2(_player._cachedDirection);
-        if (dir.x != 0 && dir.y != 0)
-            dir.x = 0;
-        dir.Clamp(new Vector2Int(-1, -1), new Vector2Int(1, 1));
+        Vector2Int dir = BlendVector2(RoundVector2(_player._cachedDirection));
         Vector3 spawnPos = exitPoints[GetExitPoint(dir)].transform.position;
         GameObject G = Instantiate(_projectile, spawnPos, Quaternion.identity, null);
         G.GetComponent<Rigidbody2D>().velocity = ((Vector2)dir * _speed);
@@ -29,12 +26,27 @@ public class PlayerBProjectiles : MonoBehaviour
             return 2;
         if (Direction == Vector2Int.right)
             return 3;
-        return -1;
+        return 0;
     }
     Vector2Int RoundVector2(Vector2 ToRound)
     {
         int x = Mathf.RoundToInt(ToRound.x);
         int y = Mathf.RoundToInt(ToRound.y);
         return new Vector2Int(x, y);
+    }
+    private Vector2Int BlendVector2(Vector2 ToBlend)
+    {
+        float SmallestDist = 10;
+        Vector2Int StoredDir = Vector2Int.zero;
+        foreach (Vector2Int V in Constants.CardianlsVi)
+        {
+            float dist = Vector2.Distance(ToBlend, V);
+            if (SmallestDist > dist)
+            {
+                SmallestDist = dist;
+                StoredDir = V;
+            }
+        }
+        return StoredDir;
     }
 }

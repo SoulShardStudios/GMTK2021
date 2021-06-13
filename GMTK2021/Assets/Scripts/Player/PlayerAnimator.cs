@@ -10,8 +10,6 @@ public class PlayerAnimator : AnimatorController
     #endregion
     #region FlashAnimVars
     int _flashes = 0;
-    int dir = 0;
-    SpriteRenderer _renderer;
     [SerializeField] float _flashSpeed;
     #endregion
     void Awake()
@@ -19,7 +17,6 @@ public class PlayerAnimator : AnimatorController
         // cache references
         _player = GetComponent<Player>();
         _animator = GetComponent<Animator>();
-        _renderer = GetComponent<SpriteRenderer>();
     }
     void Update()
     {

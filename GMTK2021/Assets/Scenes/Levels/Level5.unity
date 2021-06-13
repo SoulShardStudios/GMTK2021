@@ -29266,7 +29266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doorA: {fileID: 1630008813}
   _doorB: {fileID: 1150744312}
-  _sceneToLoad: Level2
+  _sceneToLoad: Title
 --- !u!114 &1630008813 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 494045004917219527, guid: 9863d631100c17d4b81767ac4efc46f5, type: 3}

@@ -1,22 +1,30 @@
 using UnityEngine;
+using System.Collections;
 [RequireComponent(typeof(Collider2D))]
 public class PlayerDamageObject : MonoBehaviour
 {
     [SerializeField] int _damage;
     [SerializeField] float _destoryAfter;
-    Timer _deathTimer = new Timer(0);
+    [SerializeField] bool _shouldDestory;
     void OnTriggerEnter2D(Collider2D collision)
     {
         Entity entity = collision.GetComponent<Entity>();
         if (entity)
             entity.TakeDamage(_damage);
     }
-    void OnEnable()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        _deathTimer = new Timer(_destoryAfter);
-        _deathTimer.OnDone += DestoryThis;
+        if (_shouldDestory)
+            Destroy(gameObject);
     }
-    private void OnDisable() => _deathTimer.OnDone -= DestoryThis;
-    void Update() => _deathTimer.HandleTimerScaled();
-    void DestoryThis() => Destroy(gameObject);
+    private void OnEnable()
+    {
+        if (_shouldDestory)
+            StartCoroutine(DestroyThis());
+    }
+    IEnumerator DestroyThis()
+    {
+        yield return new WaitForSeconds(_destoryAfter);
+        Destroy(gameObject);
+    }
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8880393043962341251}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ExitPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7458880757879892679}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4773397759450305049}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6729876221278811417}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 2936104136798032618}
   - component: {fileID: 5266989198303914465}
   - component: {fileID: 8191061099566603972}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerB
   m_TagString: PlayerB
   m_Icon: {fileID: 0}
@@ -449,7 +449,7 @@ MonoBehaviour:
   - {fileID: 6774006654034624142}
   - {fileID: 4837679768117396432}
   - {fileID: 4723006847524319177}
-  _speed: 0.05
+  _speed: 2
 --- !u!1 &6774006654034624142
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +459,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6278004402290574713}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
