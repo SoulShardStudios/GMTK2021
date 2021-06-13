@@ -9,7 +9,14 @@ public class Timer
     public float MaxCooldown { get => _maxCooldown; set => _maxCooldown = value; }
     public float CurrentCooldown => _currentCooldown;
     public float CurrentCooldownPercent { get => CurrentCooldown / _maxCooldown; }
-    public Timer(float maxCooldown) => _maxCooldown = maxCooldown;
+    bool _autoReset;
+
+    public Timer(float maxCooldown, bool autoReset = false)
+    {
+        _maxCooldown = maxCooldown;
+        _autoReset = autoReset;
+    }
+
     #endregion
     #region Time Update Methods
     // handles the incrementation of the timer in real time (run this in an update loop)
@@ -20,6 +27,9 @@ public class Timer
         {
             OnDone?.Invoke();
             _done = true;
+            
+            if(_autoReset)
+                Reset();
         }
     }
     // handles the incrementation of the timer in scald in game time (run this in an update loop)
@@ -30,6 +40,9 @@ public class Timer
         {
             OnDone?.Invoke();
             _done = true;
+            
+            if(_autoReset)
+                Reset();
         }
     }
     #endregion

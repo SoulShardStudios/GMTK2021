@@ -16,6 +16,7 @@ public abstract class Entity : MonoBehaviour
     AIDestinationSetter _aiDestinationSetter;
     AIPath _aiPath;
     float _currentHealth;
+    readonly Timer _moveCooldown = new Timer(1.2f);
 
     protected bool shouldMove = true;
 
@@ -30,9 +31,33 @@ public abstract class Entity : MonoBehaviour
         
         // set ai props
         _aiDestinationSetter.target = _targetedPlayer;
-        
+
         if(_isFlying) 
             _aiPath.pickNextWaypointDist = 5;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        // check if enemy deals melee damage
+        if(!_isMelee)
+            return;
+
+        // check for player collision
+        var player = other.gameObject.GetComponent<Player>();
+
+        if (player)
+            PlayerHealthManager.ApplyDamage((int)_baseDamage);
+        
+        // apply cooldown for movement
+        _moveCooldown.Reset();
+    }
+
+    void Update()
+    {
+        // handle timers
+        _moveCooldown.HandleTimerScaled();
+        
+        UpdateLoop();
     }
 
     void FixedUpdate()
@@ -41,9 +66,9 @@ public abstract class Entity : MonoBehaviour
 
         var isInDistance = Vector2.Distance(transform.position, _targetedPlayer.position) <= _detectionRange;
 
-        _aiPath.canMove = isInDistance && shouldMove;
+        _aiPath.canMove = isInDistance && shouldMove && _moveCooldown.IsDone();
         
-        PhysicsUpdate();
+        PhysicsUpdateLoop();
     }
 
     public void TakeDamage(float damage)
@@ -59,5 +84,6 @@ public abstract class Entity : MonoBehaviour
     }
 
     protected virtual void OnDeath() { }
-    protected virtual void PhysicsUpdate() {} // passing fixed update to subclasses
+    protected virtual void PhysicsUpdateLoop() {} // passing fixed update to subclasses
+    protected virtual void UpdateLoop() {} // passing update to subclasses
 }
