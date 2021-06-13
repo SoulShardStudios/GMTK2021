@@ -49,10 +49,13 @@ public class PlayerAnimator : AnimatorController
     public void StartDamageFlash() => _flashes = 6;
     void HandleDamageFlash()
     {
+        _flashes--;
+        /*
         dir = _flashes % 2 == 0 ? -1 : 1;
         _renderer.color = ModAlpha(_renderer.color, dir*_flashSpeed);
         if (_renderer.color.a >= 1 || _renderer.color.a <= 0)
             _flashes--;
+        */
     }
     Color ModAlpha(Color toMod, float modBy) => new Color(toMod.r, toMod.g, toMod.b, toMod.a + modBy);
 }
