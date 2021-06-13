@@ -14,9 +14,10 @@ public class PlayerBProjectiles : MonoBehaviour
         Vector2Int dir = RoundVector2(_player._cachedDirection);
         if (dir.x != 0 && dir.y != 0)
             dir.x = 0;
+        dir.Clamp(new Vector2Int(-1, -1), new Vector2Int(1, 1));
         Vector3 spawnPos = exitPoints[GetExitPoint(dir)].transform.position;
         GameObject G = Instantiate(_projectile, spawnPos, Quaternion.identity, null);
-        G.GetComponent<Rigidbody2D>().AddForce((Vector2)dir * _speed);
+        G.GetComponent<Rigidbody2D>().velocity = ((Vector2)dir * _speed);
     }
     int GetExitPoint(Vector2Int Direction)
     {
@@ -30,7 +31,7 @@ public class PlayerBProjectiles : MonoBehaviour
             return 3;
         return -1;
     }
-    private Vector2Int RoundVector2(Vector2 ToRound)
+    Vector2Int RoundVector2(Vector2 ToRound)
     {
         int x = Mathf.RoundToInt(ToRound.x);
         int y = Mathf.RoundToInt(ToRound.y);

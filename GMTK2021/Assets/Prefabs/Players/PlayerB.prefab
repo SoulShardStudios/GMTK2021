@@ -449,7 +449,7 @@ MonoBehaviour:
   - {fileID: 6774006654034624142}
   - {fileID: 4837679768117396432}
   - {fileID: 4723006847524319177}
-  _speed: 1
+  _speed: 0.05
 --- !u!1 &6774006654034624142
 GameObject:
   m_ObjectHideFlags: 0

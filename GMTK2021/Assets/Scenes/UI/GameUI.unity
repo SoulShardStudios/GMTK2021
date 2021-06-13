@@ -2261,6 +2261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
+<<<<<<< Updated upstream
   - ToPlay: {fileID: 8300000, guid: d619a96da58a6e34fae26a6c50b0efb8, type: 3}
     Name: button
     Loop: 0
@@ -2309,6 +2310,14 @@ MonoBehaviour:
     PlayOnAwake: 0
     Volume: 0.6
     Pitch: 1
+=======
+  - ToPlay: {fileID: 0}
+    Name: 
+    Loop: 0
+    PlayOnAwake: 0
+    Volume: 0
+    Pitch: 0
+>>>>>>> Stashed changes
     Source: {fileID: 0}
 --- !u!224 &1945164277
 RectTransform:
