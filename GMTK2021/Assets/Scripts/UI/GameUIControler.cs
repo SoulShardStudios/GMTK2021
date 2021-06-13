@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class GameUIControler : MonoBehaviour
 {
     #region Vars
-    [SerializeField] UIButton _pauseExit, _unpause, _gameOverExit, _retry;
+    [SerializeField] UIButton _pauseExit, _unpause, _gameOverExit, _retry, _retry2;
     [SerializeField] Image _hpBar;
     [SerializeField] Image _playerAKey, _playerBKey;
     [SerializeField] string _title;
@@ -32,6 +32,7 @@ public class GameUIControler : MonoBehaviour
         _gameOver.SetActive(false);
         _gameOverExit.clickCallback += ExitGame;
         _retry.clickCallback += RetryLevel;
+        _retry2.clickCallback += RetryLevel;
     }
     private void OnDisable()
     {
@@ -40,6 +41,7 @@ public class GameUIControler : MonoBehaviour
         _unpause.clickCallback -= TogglePause;
         _gameOverExit.clickCallback -= ExitGame;
         _retry.clickCallback -= RetryLevel;
+        _retry2.clickCallback -= RetryLevel;
     }
     #endregion
     #region Pause Funcs
