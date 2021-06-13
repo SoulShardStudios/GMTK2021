@@ -2538,6 +2538,13 @@ MonoBehaviour:
     Volume: 0.6
     Pitch: 1
     Source: {fileID: 0}
+  - ToPlay: {fileID: 8300000, guid: 8becda40ba52f4349a8fa7c56f240cf4, type: 3}
+    Name: soundtrack
+    Loop: 1
+    PlayOnAwake: 1
+    Volume: 0.9
+    Pitch: 1
+    Source: {fileID: 0}
 --- !u!224 &1945164277
 RectTransform:
   m_ObjectHideFlags: 0
