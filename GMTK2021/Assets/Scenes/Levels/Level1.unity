@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 53711660}
   - component: {fileID: 53711659}
   m_Layer: 0
-  m_Name: WASD (1)
+  m_Name: Crouch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
