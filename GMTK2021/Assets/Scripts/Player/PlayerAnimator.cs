@@ -4,9 +4,9 @@ using UnityEngine;
 public class PlayerAnimator : AnimatorController
 {
     #region Direction Based Anim Vars
-    [SerializeField] AnimationBlender _idleBlender, _walkBlender;
-    Player _playerMovement;
-    Vector2 _cachedDirection;
+    [SerializeField] AnimationBlender _idleBlender, _walkBlender, _attackBlender;
+    Player _player;
+    [HideInInspector] public Vector2 _cachedDirection;
     #endregion
     #region FlashAnimVars
     int _flashes = 0;
@@ -17,7 +17,7 @@ public class PlayerAnimator : AnimatorController
     void Awake()
     {
         // cache references
-        _playerMovement = GetComponent<Player>();
+        _player = GetComponent<Player>();
         _animator = GetComponent<Animator>();
         _renderer = GetComponent<SpriteRenderer>();
     }
@@ -30,16 +30,21 @@ public class PlayerAnimator : AnimatorController
     {
         // TODO: add some logic tied with PlayerAttack? so it plays attack animation
 
-        var normalizedMovementVector = _playerMovement.InputMovementVector.normalized;
-        if (normalizedMovementVector != Vector2.zero)
+        var normalizedMovementVector = _player.InputMovementVector.normalized;
+        if (!_player.isAttacking)
         {
-            _cachedDirection = normalizedMovementVector;
-            ChangeAnimState(_walkBlender.GetBlendedAnimation(normalizedMovementVector));
+            if (normalizedMovementVector != Vector2.zero)
+            {
+                _cachedDirection = normalizedMovementVector;
+                ChangeAnimState(_walkBlender.GetBlendedAnimation(normalizedMovementVector));
+            }
+            else
+            {
+                ChangeAnimState(_idleBlender.GetBlendedAnimation(_cachedDirection));
+            }
         }
         else
-        {
-            ChangeAnimState(_idleBlender.GetBlendedAnimation(_cachedDirection));
-        }
+            ChangeAnimState(_attackBlender.GetBlendedAnimation(_cachedDirection));
     }
     public void StartDamageFlash() => _flashes = 6;
     void HandleDamageFlash()

@@ -8,12 +8,15 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     #region Vars
+    [SerializeField] bool _cantPause;
+    bool _paused  { get => !_cantPause && GameUIControler.S.isPaused; }
     [SerializeField] float _playerSpeed;
-    [HideInInspector] public bool hasKey;
+    [HideInInspector] public bool hasKey, isAttacking;
     public Vector2 InputMovementVector { get; private set; }
     Rigidbody2D _rigidbody2D;
     [HideInInspector] public PlayerAnimator animator;
     bool _isDead, _isCrouched;
+    Timer _attackCooldown = new Timer(.3f);
     #endregion
     #region Update/Init Methods
     void Awake()
@@ -23,12 +26,13 @@ public class Player : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
     }
     private void OnEnable() => PlayerHealthManager.AddToManager(this);
+    private void Update() => _attackCooldown.HandleTimerScaled();
     void FixedUpdate()
     {
-        if (GameUIControler.S.isPaused || _isDead)
+        Debug.Log(_paused);
+        if (_paused || _isDead || isAttacking)
             InputMovementVector = Vector2.zero;
-        else
-            animator.HandleAnimation();
+        animator.HandleAnimation();
         // handle the movement
         _rigidbody2D.velocity = InputMovementVector * _playerSpeed * (_isCrouched ? 0.5f : 1);
     }
@@ -36,15 +40,21 @@ public class Player : MonoBehaviour
     #region PlayerInput callbacks
     public void OnMovement(InputAction.CallbackContext context)
     {
-        if (!GameUIControler.S.isPaused)
+        if (!_paused)
             InputMovementVector = context.ReadValue<Vector2>();
         else
             InputMovementVector = Vector2.zero;
     }
-    public void OnCrouched(InputAction.CallbackContext context)
+    public void OnCrouched(InputAction.CallbackContext context) => _isCrouched = !_isCrouched;
+    public void OnAttacked(InputAction.CallbackContext context)
     {
-        Debug.Log(_isCrouched);
-        _isCrouched = !_isCrouched;
+        if (_attackCooldown.IsDone())
+            isAttacking = true;
+    }
+    public void AttackDisableCallback()
+    {
+        isAttacking = false;
+        _attackCooldown.Reset();
     }
     #endregion
     #region Colision Checks
