@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 2018508966327703941}
   - component: {fileID: 2333716242321034641}
   - component: {fileID: 7180571354123941767}
+  - component: {fileID: 1844734875196671825}
   m_Layer: 0
   m_Name: Spider
   m_TagString: Untagged
@@ -180,7 +181,7 @@ MonoBehaviour:
   version: 2
   radius: 0.06
   height: 2
-  repathRate: 0.5
+  repathRate: 0.3
   canSearch: 1
   canMove: 1
   maxSpeed: 1
@@ -234,3 +235,20 @@ MonoBehaviour:
   _baseHealth: 3
   _baseDamage: 1
   _detectionRange: 3
+  _projectile: {fileID: 6624405623362054711, guid: e960eeb3fcf870c4f93449948ff0cb94, type: 3}
+--- !u!58 &1844734875196671825
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4618449299161643488}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.07

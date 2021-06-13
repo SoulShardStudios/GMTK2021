@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 1057716111827618136}
   - component: {fileID: 3660839942114565451}
   - component: {fileID: 3660839942114565452}
+  - component: {fileID: 6726015971996583236}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Untagged
@@ -180,7 +181,7 @@ MonoBehaviour:
   version: 2
   radius: 0.03
   height: 2
-  repathRate: 0.5
+  repathRate: 0.3
   canSearch: 1
   canMove: 1
   maxSpeed: 1
@@ -234,3 +235,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!58 &6726015971996583236
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5960209738715654461}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.03

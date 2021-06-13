@@ -46,10 +46,12 @@ public abstract class Entity : MonoBehaviour
         var player = other.gameObject.GetComponent<Player>();
 
         if (player)
+        {
             PlayerHealthManager.ApplyDamage((int)_baseDamage);
+            _moveCooldown.Reset();
+        }
         
         // apply cooldown for movement
-        _moveCooldown.Reset();
     }
 
     void Update()
@@ -71,6 +73,17 @@ public abstract class Entity : MonoBehaviour
         PhysicsUpdateLoop();
     }
 
+    protected void Shoot(Rigidbody2D projectile, float force)
+    {
+        // instantiate the projectile
+        var projectileObject = Instantiate(projectile, transform.position, Quaternion.identity);
+        Destroy(projectileObject.gameObject, 5f);
+        
+        var direction = (_targetedPlayer.position - transform.position).normalized * force;
+        
+        projectileObject.AddForce(direction, ForceMode2D.Impulse);
+    }
+    
     public void TakeDamage(float damage)
     {
         _currentHealth -= damage;

@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 4173751314751433606}
   - component: {fileID: 399708820834205586}
   - component: {fileID: 2693826436399265179}
+  - component: {fileID: 5875919833793066434}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -180,7 +181,7 @@ MonoBehaviour:
   version: 2
   radius: 0.06
   height: 2
-  repathRate: 0.5
+  repathRate: 0.3
   canSearch: 1
   canMove: 1
   maxSpeed: 1
@@ -232,9 +233,35 @@ MonoBehaviour:
   _isMelee: 1
   _entityName: Ghost
   _baseHealth: 3
-  _baseDamage: 1
+  _baseDamage: 3
   _detectionRange: 3
   _obstacleLayer:
     serializedVersion: 2
     m_Bits: 8
   _projectile: {fileID: 2473490226431415271, guid: 90fd5376767f8014495e0c9a5209485f, type: 3}
+--- !u!61 &5875919833793066434
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7347355249027124195}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0005837083, y: 0.0022372007}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.13758814, y: 0.14089525}
+  m_EdgeRadius: 0

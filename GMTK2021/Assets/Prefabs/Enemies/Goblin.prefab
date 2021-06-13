@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 1932213383256623615}
   - component: {fileID: 2787922158598872555}
   - component: {fileID: 3785763830326387233}
+  - component: {fileID: 7304493939317590512}
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Untagged
@@ -180,7 +181,7 @@ MonoBehaviour:
   version: 2
   radius: 0.06
   height: 2
-  repathRate: 0.5
+  repathRate: 0.3
   canSearch: 1
   canMove: 1
   maxSpeed: 1
@@ -234,3 +235,29 @@ MonoBehaviour:
   _baseHealth: 3
   _baseDamage: 1
   _detectionRange: 3
+--- !u!61 &7304493939317590512
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5101366490159737242}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0020927787, y: -0.008371115}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.1126672, y: 0.11685264}
+  m_EdgeRadius: 0

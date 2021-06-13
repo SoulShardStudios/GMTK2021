@@ -21,25 +21,13 @@ public class Ghost : Entity
     void Start()
     {
         // sub to timer actions
-        _shootTimer.OnDone += Shoot;
+        _shootTimer.OnDone += () => Shoot(_projectile, 1.3f);
         _shootTimer.Reset();
-    }
-
-    void Shoot()
-    {
-        // instantiate the projectile
-        var projectile = Instantiate(_projectile, transform.position, Quaternion.identity);
-        Destroy(projectile.gameObject, 5f);
-        
-        var direction = (_targetedPlayer.position - transform.position).normalized * 1.3f;
-        
-        projectile.AddForce(direction, ForceMode2D.Impulse);
     }
 
     protected override void UpdateLoop()
     {
         // handle timers
         _shootTimer.HandleTimerScaled();
-        Debug.Log(_shootTimer.CurrentCooldown);
     }
 }
