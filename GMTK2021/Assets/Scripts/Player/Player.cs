@@ -48,7 +48,11 @@ public class Player : MonoBehaviour
     public void OnAttacked(InputAction.CallbackContext context)
     {
         if (_attackCooldown.IsDone())
+        {
             isAttacking = true;
+            AudioManager.S.PlaySound("sword");
+            // AudioManager.S.PlaySound("shoot");
+        }
     }
     public void AttackDisableCallback()
     {
@@ -61,11 +65,21 @@ public class Player : MonoBehaviour
     {
         if (collision.CompareTag("Key"))
         {
+            AudioManager.S.PlaySound("keyPickup");
             hasKey = true;
             Destroy(collision.gameObject);
             GameUIControler.S.TogglePlayerKeyDisplay(hasKey, tag);
         }
     }
+    #endregion
+
+    #region AnimatorFuncs
+
+    public void PlayFootstepSound()
+    {
+        AudioManager.S.PlaySound("footsteps");
+    }
+
     #endregion
     public void Death()
     {

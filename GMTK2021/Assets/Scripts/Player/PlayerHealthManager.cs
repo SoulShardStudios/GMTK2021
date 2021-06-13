@@ -19,6 +19,7 @@ public static class PlayerHealthManager
             if (damageCooldown.IsDone())
             {
                 _health -= damage;
+                AudioManager.S.PlaySound("hurt");
                 if (_health < 0)
                 {
                     Death();

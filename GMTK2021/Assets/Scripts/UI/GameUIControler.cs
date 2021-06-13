@@ -47,6 +47,7 @@ public class GameUIControler : MonoBehaviour
     public void TogglePause(PointerEventData eventData) => TogglePause();
     private void TogglePause()
     {
+        AudioManager.S.PlaySound("pause");
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0 : 1;
         _pause.SetActive(isPaused);
