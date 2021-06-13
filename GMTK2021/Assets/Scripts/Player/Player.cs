@@ -29,7 +29,6 @@ public class Player : MonoBehaviour
     private void Update() => _attackCooldown.HandleTimerScaled();
     void FixedUpdate()
     {
-        Debug.Log(_paused);
         if (_paused || _isDead || isAttacking)
             InputMovementVector = Vector2.zero;
         animator.HandleAnimation();
