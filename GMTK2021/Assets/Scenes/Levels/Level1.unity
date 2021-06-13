@@ -302,6 +302,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2488721969700123024, guid: 9c2417ead2ddeef4586d91b82cfa1eaf, type: 3}
+      propertyPath: _targetedPlayer
+      value: 
+      objectReference: {fileID: 2056363438}
     - target: {fileID: 2488721969700123026, guid: 9c2417ead2ddeef4586d91b82cfa1eaf, type: 3}
       propertyPath: m_Name
       value: Slime (1)
@@ -3841,6 +3845,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2488721969700123024, guid: 9c2417ead2ddeef4586d91b82cfa1eaf, type: 3}
+      propertyPath: _targetedPlayer
+      value: 
+      objectReference: {fileID: 1484138877}
     - target: {fileID: 2488721969700123026, guid: 9c2417ead2ddeef4586d91b82cfa1eaf, type: 3}
       propertyPath: m_Name
       value: Slime
