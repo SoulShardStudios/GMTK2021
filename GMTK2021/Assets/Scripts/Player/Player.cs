@@ -8,6 +8,8 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     #region Vars
+    [SerializeField] bool _cantPause;
+    bool _paused  { get => !_cantPause && GameUIControler.S.isPaused; }
     [SerializeField] float _playerSpeed;
     [HideInInspector] public bool hasKey, isAttacking;
     public Vector2 InputMovementVector { get; private set; }
@@ -27,7 +29,8 @@ public class Player : MonoBehaviour
     private void Update() => _attackCooldown.HandleTimerScaled();
     void FixedUpdate()
     {
-        if (GameUIControler.S.isPaused || _isDead || isAttacking)
+        Debug.Log(_paused);
+        if (_paused || _isDead || isAttacking)
             InputMovementVector = Vector2.zero;
         animator.HandleAnimation();
         // handle the movement
@@ -37,7 +40,7 @@ public class Player : MonoBehaviour
     #region PlayerInput callbacks
     public void OnMovement(InputAction.CallbackContext context)
     {
-        if (!GameUIControler.S.isPaused)
+        if (!_paused)
             InputMovementVector = context.ReadValue<Vector2>();
         else
             InputMovementVector = Vector2.zero;

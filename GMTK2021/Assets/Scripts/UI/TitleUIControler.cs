@@ -4,18 +4,18 @@ using UnityEngine.EventSystems;
 
 public class TitleUIControler : MonoBehaviour
 {
-    [SerializeField] UIButton _play;
+    [SerializeField] UIButton _play, _exit;
     [SerializeField] string _level1;
-    private void OnEnable()
+    void OnEnable()
     {
         _play.clickCallback += Play;
+        _exit.clickCallback += Exit;
     }
-    private void OnDisable()
+    void OnDisable()
     {
         _play.clickCallback -= Play;
+        _exit.clickCallback -= Exit;
     }
-    private void Play(PointerEventData eventData)
-    {
-        SceneManager.LoadScene(_level1, LoadSceneMode.Single);
-    }
+    void Play(PointerEventData eventData) => SceneManager.LoadScene(_level1, LoadSceneMode.Single);
+    void Exit(PointerEventData eventData) => Application.Quit();
 }
