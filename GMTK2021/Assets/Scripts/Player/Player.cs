@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     private void Update() => _attackCooldown.HandleTimerScaled();
     void FixedUpdate()
     {
-        if (_paused || _isDead || isAttacking)
+        if (_paused || _isDead)
             InputMovementVector = Vector2.zero;
         animator.HandleAnimation();
         // handle the movement

@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d52b6bb3a912546b09558d571a1246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cantPause: 0
   _playerSpeed: 1.2
   hasKey: 0
   isAttacking: 0
@@ -442,12 +443,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d030cd6273d561e4abb9a9d13d7923a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectile: {fileID: 0}
+  _projectile: {fileID: 4026645396668350869, guid: cec0aa3d7fcce73408892c6fabe97af2, type: 3}
   exitPoints:
   - {fileID: 5154627910773791182}
   - {fileID: 6774006654034624142}
   - {fileID: 4837679768117396432}
   - {fileID: 4723006847524319177}
+  _speed: 1
 --- !u!1 &6774006654034624142
 GameObject:
   m_ObjectHideFlags: 0
