@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public Vector2 InputMovementVector { get; private set; }
     Rigidbody2D _rigidbody2D;
     [HideInInspector] public PlayerAnimator animator;
-    bool _isDead;
+    bool _isDead, _isCrouched;
     #endregion
     #region Update/Init Methods
     void Awake()
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         else
             animator.HandleAnimation();
         // handle the movement
-        _rigidbody2D.velocity = InputMovementVector * _playerSpeed;
+        _rigidbody2D.velocity = InputMovementVector * _playerSpeed * (_isCrouched ? 0.5f : 1);
     }
     #endregion
     #region PlayerInput callbacks
@@ -41,7 +41,11 @@ public class Player : MonoBehaviour
         else
             InputMovementVector = Vector2.zero;
     }
-
+    public void OnCrouched(InputAction.CallbackContext context)
+    {
+        Debug.Log(_isCrouched);
+        _isCrouched = !_isCrouched;
+    }
     #endregion
     #region Colision Checks
     private void OnTriggerEnter2D(Collider2D collision)
