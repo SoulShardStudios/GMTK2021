@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8299332266344481143}
   - component: {fileID: 5714240005339813219}
   - component: {fileID: -8266218191997628924}
+  - component: {fileID: 4271890360442400385}
   m_Layer: 0
   m_Name: Golem
   m_TagString: Untagged
@@ -78,7 +79,7 @@ MonoBehaviour:
   version: 2
   radius: 0.06
   height: 2
-  repathRate: 0.5
+  repathRate: 0.3
   canSearch: 1
   canMove: 1
   maxSpeed: 1
@@ -132,6 +133,32 @@ MonoBehaviour:
   _baseHealth: 10
   _baseDamage: 1
   _detectionRange: 3
+--- !u!61 &4271890360442400385
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3401922681634791698}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0020349026, y: -0.005087137}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.10872936, y: 0.12704313}
+  m_EdgeRadius: 0
 --- !u!1 &8202046372818113872
 GameObject:
   m_ObjectHideFlags: 0
